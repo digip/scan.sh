@@ -10,8 +10,9 @@ do
 sleep 1
 port=`expr $port + 1`
 tcpcheck 3 $addr:$port | grep alive
-if [ $port -eq 81 ] ##change to max port to scan up to, ex: 65535
-   then
-      break
-   fi
+if [ $port -eq 1024 ] ##change to max port to scan up to, ex: 65535
+ then
+  arp | grep ether
+  break
+ fi
 done
