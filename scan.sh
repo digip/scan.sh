@@ -7,9 +7,9 @@ read addr
 port=20 ### starting port number
 while :
 do
-sleep 1
+#sleep 1
 port=`expr $port + 1`
-tcpcheck 3 $addr:$port | grep alive
+tcpcheck 1 $addr:$port | grep alive
 if [ $port -eq 1024 ] ##change to max port to scan up to, ex: 65535
  then
   arp | grep ether
